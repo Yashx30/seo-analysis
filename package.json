@@ -1,0 +1,22 @@
+{
+  "name": "seo-analysis2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yash",
+  "license": "ISC",
+  "dependencies": {
+    "alexa-rank-nodejs": "^1.0.4",
+    "ejs": "^3.1.6",
+    "exec": "^0.2.1",
+    "express": "^4.17.1",
+    "is-up": "^3.0.0",
+    "is-valid-domain": "^0.1.4",
+    "moment": "^2.29.1",
+    "nodemon": "^2.0.14",
+    "whois-json": "^2.0.4"
+  }
+}

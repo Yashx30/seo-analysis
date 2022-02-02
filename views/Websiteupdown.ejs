@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Website up or down</title>
+    <link
+      rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+      <div class="container">
+          <h1 class="text-center">
+              Bulk Website Up or Down Checker
+          </h1>
+          <form id="form">
+            <div class="form-group">
+                <label for="domain">Enter Domains URL: (One Per Line)</label>
+                <textarea class="form-control" rows="10" cols="20" id="domains" placeholder="Domain names" required></textarea>
+            </div>
+            <div class="form-group">
+                <button id="button" class="btn btn-block btn-danger">
+                    Get Domains Status
+                    
+                </button>
+            </div>
+        </form>
+        <div>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Domain URL</th>
+                    <th>Domain Status</th>
+                </tr>
+                </thead>
+                <tbody id="body">
+
+                </tbody>
+            </table>
+        </div>
+        <br><br>
+      </div>
+</body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/psl/1.8.0/psl.min.js"></script>
+  <script>
+      $("#form").submit(function(e){
+          e.preventDefault()
+
+          var domains = $('#domains').val().split('\n');
+
+          console.log(domains)
+
+          domains.forEach(domain => {
+
+            var prefix = 'https://';
+if (domain.substr(0, prefix.length) !== prefix)
+{
+    domain = prefix + domain;
+}
+            
+            $.ajax({
+              method:"POST",
+              url:"/singledomainstatuschecker",
+              data:{domain:domain},
+              success:function(data){
+                  console.log(data.domainstatus)
+
+                  $("#body").append(`
+                  <tr>
+                     <td>${domain}</td>
+                     <td>${data.domainstatus}</td> 
+                  </tr>
+                  
+                  `)
+              }
+          })
+            
+          });
+
+
+
+      })
+  </script>
+</html>

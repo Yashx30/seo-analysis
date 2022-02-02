@@ -1,0 +1,52 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+}
+header{
+    position: relative;
+    background: url(bg2.jpg.jpg);
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    padding: 250px 0 200px;
+  }
+  .nav23{
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+  
+  }
+ 
+  .box{
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%,-50%);
+     
+  }
+  input[type="text"]{
+      background:#fff;
+      width: 340px;
+      height: 50px;
+      border: none;
+      outline: none;
+      padding: 0 25px;
+      border-radius: 25px ;
+  }
+  .button-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 15px;
+
+
+    
+  }
+  .area-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 200px;
+    width: 80%;
+  }
